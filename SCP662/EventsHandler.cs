@@ -49,8 +49,8 @@ public class EventsHandler : CustomEventsHandler
             MrDeeds.Instance.Master = null;
             var deeds = MrDeeds.Instance.GetAliveMrDeeds();
             if (deeds == null) return;
-            
-            
+            deeds.Kill();
+
         }
     }
 
@@ -60,6 +60,14 @@ public class EventsHandler : CustomEventsHandler
         {
             MrDeeds.Instance.Master = null;
             return;
+        }
+        if (ev.Player == MrDeeds.Instance.Master)
+        {
+            MrDeeds.Instance.Master = null;
+            var deeds = MrDeeds.Instance.GetAliveMrDeeds();
+            if (deeds == null) return;
+            deeds.Kill();
+
         }
     }
 
