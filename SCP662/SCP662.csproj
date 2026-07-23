@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    </PropertyGroup>
+
+    <Target Name="CopyToPluginFolder" AfterTargets="Build">
+        <Copy SourceFiles="$(TargetPath)"
+              DestinationFolder="/home/karlito/.config/SCP Secret Laboratory/LabAPI/plugins/7777/"/>
+    </Target>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" PrivateAssets="All" Version="1.0.3"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Assembly-Csharp">
+            <HintPath>$(SL_REFERENCES)/Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="UncomplicatedCustomRoles">
+            <HintPath>/home/karlito/.config/SCP Secret Laboratory/LabAPI/plugins/7777/UncomplicatedCustomRoles.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-Csharp-firstpass">
+            <HintPath>$(SL_REFERENCES)/Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="CommandSystem.Core">
+            <HintPath>$(SL_REFERENCES)/CommandSystem.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="LabAPI">
+            <HintPath>$(SL_REFERENCES)/LabApi.dll</HintPath>
+        </Reference>
+        <Reference Include="Mirror">
+            <HintPath>$(SL_REFERENCES)/Mirror.dll</HintPath>
+        </Reference>
+        <Reference Include="Pooling">
+            <HintPath>$(SL_REFERENCES)/Pooling.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>$(SL_REFERENCES)/UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(SL_REFERENCES)/UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath>$(SL_REFERENCES)/UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="mscorlib">
+            <HintPath>$(SL_REFERENCES)/mscorlib.dll</HintPath>
+        </Reference>
+        <Reference Include="NorthwoodLib">
+            <HintPath>$(SL_REFERENCES)/NorthwoodLib.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+</Project>
