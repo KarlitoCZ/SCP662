@@ -51,26 +51,20 @@ public class MrDeeds : ICustomRole
     public List<Team> IsFriendOf { get; set; } = new List<Team> { };
     public HealthBehaviour Health { get; set; } = new HealthBehaviour
     {
-        Amount = 50,
-        Maximum = 50
+        Amount = SCP662Plugin.PluginConfig.HealthMrDeeds,
+        Maximum = SCP662Plugin.PluginConfig.HealthMrDeeds
     };
     public AhpBehaviour Ahp { get; set; } = new AhpBehaviour();
     public HumeShieldBehaviour HumeShield { get; set; } = new HumeShieldBehaviour
     {
-        Amount = 50,
-        Maximum = 50,
+        Amount = SCP662Plugin.PluginConfig.HealthShieldMrDeeds,
+        Maximum = SCP662Plugin.PluginConfig.HealthShieldMrDeeds,
         RegenerationAmount = 2.5f,
         RegenerationDelay = 5f,
         RegenerationSpeed = 0.5f
     };
 
-    public List<Effect>? Effects { get; set; } = new List<Effect> { new Effect
-    {
-        Duration = 0f,
-        EffectType = "NightVision",
-        Intensity = 10,
-        Removable = false,
-    }};
+    public List<Effect>? Effects { get; set; } = new List<Effect> { new Effect() };
     public StaminaBehaviour Stamina { get; set; } = new StaminaBehaviour();
     public int MaxScp330Candies { get; set; }
     public bool CanEscape { get; set; } = false;
@@ -85,7 +79,8 @@ public class MrDeeds : ICustomRole
     public List<ItemType> Inventory { get; set; } = new List<ItemType>
     {
         ItemType.GunCOM18,
-        ItemType.Flashlight
+        ItemType.Flashlight,
+        ItemType.KeycardMTFOperative
     };
     public List<uint> CustomItemsInventory { get; set; } = new List<uint>();
 

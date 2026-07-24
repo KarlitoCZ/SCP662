@@ -23,6 +23,9 @@
         <Reference Include="UncomplicatedCustomRoles">
             <HintPath>/home/karlito/.config/SCP Secret Laboratory/LabAPI/plugins/7777/UncomplicatedCustomRoles.dll</HintPath>
         </Reference>
+        <Reference Include="SecretLabNAudio.Core">
+            <HintPath>/home/karlito/.config/SCP Secret Laboratory/LabAPI/dependencies/7777/SecretLabNAudio.Core.dll</HintPath>
+        </Reference>
         <Reference Include="Assembly-Csharp-firstpass">
             <HintPath>$(SL_REFERENCES)/Assembly-CSharp-firstpass.dll</HintPath>
         </Reference>
@@ -53,5 +56,13 @@
         <Reference Include="NorthwoodLib">
             <HintPath>$(SL_REFERENCES)/NorthwoodLib.dll</HintPath>
         </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Sounds\bellring.mp3" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="API\" />
     </ItemGroup>
 </Project>

@@ -95,3 +95,6 @@
 /home/karlito/RiderProjects/SCP662/SCP662/obj/Debug/net48/SCP662.csproj.Up2Date
 /home/karlito/RiderProjects/SCP662/SCP662/obj/Debug/net48/SCP662.dll
 /home/karlito/RiderProjects/SCP662/SCP662/obj/Debug/net48/SCP662.pdb
+/home/karlito/RiderProjects/SCP662/SCP662/bin/Debug/net48/SecretLabNAudio.Core.dll
+/home/karlito/RiderProjects/SCP662/SCP662/obj/Debug/net48/SCP662.sourcelink.json
+/home/karlito/RiderProjects/SCP662/SCP662/bin/Debug/net48/NAudio.Core.dll

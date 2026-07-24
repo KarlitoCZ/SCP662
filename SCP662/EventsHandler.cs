@@ -3,6 +3,7 @@ using LabApi.Events.CustomHandlers;
 using LabApi.Features.Wrappers;
 using UncomplicatedCustomRoles.API.Features;
 using UnityEngine;
+using Logger = LabApi.Features.Console.Logger;
 using Random = UnityEngine.Random;
 
 namespace SCP662;
@@ -11,12 +12,12 @@ public class EventsHandler : CustomEventsHandler
 {
     private bool IsPlayerMrDeeds(Player player)
     {
-        var DeedsPlayers = SummonedCustomRole.Get(MrDeeds.Instance);
-        if (DeedsPlayers is null) return false;
+        var deedsPlayers = SummonedCustomRole.Get(MrDeeds.Instance);
+        if (deedsPlayers is null) return false;
 
-        foreach (var i in DeedsPlayers)
+        foreach (var i in deedsPlayers)
         {
-            if (i.Player == player)
+            if (i.Player.UserId == player.UserId)
             {
                 return true;
             }
@@ -37,7 +38,7 @@ public class EventsHandler : CustomEventsHandler
         }
     }
 
-    public override void OnPlayerDeath(PlayerDeathEventArgs ev)
+    public override void OnPlayerDying(PlayerDyingEventArgs ev)
     {
         if (IsPlayerMrDeeds(ev.Player))
         {
@@ -80,6 +81,7 @@ public class EventsHandler : CustomEventsHandler
         }
         
         ev.IsAllowed = false;
+        AudioHandler.Instance.PlayAudio("SCP662.Sounds.bellring.mp3", ev.Player.Position);
         
         if (IsPlayerMrDeeds(ev.Player)) return;
         
@@ -101,13 +103,14 @@ public class EventsHandler : CustomEventsHandler
             ev.Player.SendHint("The bell is on cooldown");
             return;
         }
-        // Play sound
+        
         MrDeeds.Instance.Master = ev.Player;
 
         Vector3 spawnPos = GetSafeSpawnPosition(ev.Player.Position);
         SummonedCustomRole.Summon(pickedPlayer, MrDeeds.Instance);
         pickedPlayer.Position = spawnPos;
         ev.Player.SendHint("<color=yellow>Mr. Deeds</color> has been spawned!");
+        
     }
 
     private Vector3 GetSafeSpawnPosition(Vector3 origin, float minDist = 2f, float maxDist = 4f, float clearance = 0.6f)
