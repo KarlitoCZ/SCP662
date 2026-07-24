@@ -34,6 +34,8 @@ public class SCP662
         var spectators = Player.ReadyList
             .Where(p => p.Role == RoleTypeId.Spectator)
             .ToList();
+        
+        if (spectators.Count == 0) return null;
 
         return spectators.RandomItem();
     }
