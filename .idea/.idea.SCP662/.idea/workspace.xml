@@ -11,21 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="537ceab8-9bb5-49fc-ba1f-d74436d932be" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/SCP662/AudioHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SCP662/Sounds/bellring.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SCP662/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SCP662/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/EventsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/EventsHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/MrDeeds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/MrDeeds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/Plugin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/Plugin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/PluginConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/PluginConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/SCP662.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/SCP662.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SCP662/bin/Debug/net48/SCP662.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/bin/Debug/net48/SCP662.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SCP662/bin/Debug/net48/SCP662.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/bin/Debug/net48/SCP662.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/SCP662/obj/Debug/net48/SCP662.sourcelink.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,8 @@
       <workItem from="1784836667954" duration="3097000" />
       <workItem from="1784840163063" duration="3639000" />
       <workItem from="1784906502415" duration="3084000" />
-      <workItem from="1784913852867" duration="15725000" />
+      <workItem from="1784913852867" duration="17229000" />
+      <workItem from="1785076960244" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="added check to left event">
       <option name="closed" value="true" />
@@ -111,7 +104,23 @@
       <option name="project" value="LOCAL" />
       <updated>1784843839195</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added sounds">
+      <option name="closed" value="true" />
+      <created>1784935080259</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1784935080259</updated>
+    </task>
+    <task id="LOCAL-00003" summary="spectator fix">
+      <option name="closed" value="true" />
+      <created>1784935322997</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1784935322997</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,7 +134,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="added check to left event" />
-    <option name="LAST_COMMIT_MESSAGE" value="added check to left event" />
+    <MESSAGE value="added sounds" />
+    <MESSAGE value="spectator fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="spectator fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

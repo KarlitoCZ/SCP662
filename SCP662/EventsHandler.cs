@@ -110,7 +110,7 @@ public class EventsHandler : CustomEventsHandler
         SummonedCustomRole.Summon(pickedPlayer, MrDeeds.Instance);
         pickedPlayer.Position = spawnPos;
         ev.Player.SendHint("<color=yellow>Mr. Deeds</color> has been spawned!");
-        
+        ev.Player.ReferenceHub.nicknameSync.ShownPlayerInfo &= ~PlayerInfoArea.Role;
     }
 
     private Vector3 GetSafeSpawnPosition(Vector3 origin, float minDist = 2f, float maxDist = 4f, float clearance = 0.6f)
@@ -142,5 +142,10 @@ public class EventsHandler : CustomEventsHandler
     public override void OnServerRoundStarted()
     {
         SCP662.Instance.Spawn();
+    }
+
+    public override void OnPlayerChangedRole(PlayerChangedRoleEventArgs ev)
+    {
+        ev.Player.ReferenceHub.nicknameSync.ShownPlayerInfo &= PlayerInfoArea.Role;
     }
 }
