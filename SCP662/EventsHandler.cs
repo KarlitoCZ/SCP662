@@ -68,11 +68,9 @@ public class EventsHandler : CustomEventsHandler
             var deeds = MrDeeds.Instance.GetAliveMrDeeds();
             if (deeds == null) return;
             deeds.Kill();
-
         }
     }
-
-
+    
     public override void OnPlayerThrowingItem(PlayerThrowingItemEventArgs ev)
     {
         if (ev.Pickup.Serial != SCP662.Instance.Serial)
@@ -105,27 +103,37 @@ public class EventsHandler : CustomEventsHandler
         }
         
         MrDeeds.Instance.Master = ev.Player;
-
+        
+        pickedPlayer.ReferenceHub.nicknameSync.ShownPlayerInfo &= ~PlayerInfoArea.Role;
+        
         Vector3 spawnPos = GetSafeSpawnPosition(ev.Player.Position);
         SummonedCustomRole.Summon(pickedPlayer, MrDeeds.Instance);
         pickedPlayer.Position = spawnPos;
         ev.Player.SendHint("<color=yellow>Mr. Deeds</color> has been spawned!");
-        ev.Player.ReferenceHub.nicknameSync.ShownPlayerInfo &= ~PlayerInfoArea.Role;
+        
     }
 
-    private Vector3 GetSafeSpawnPosition(Vector3 origin, float minDist = 2f, float maxDist = 4f, float clearance = 0.6f)
+    private Vector3 GetSafeSpawnPosition(Vector3 origin, float minDist = 2f, float maxDist = 4f)
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 20; i++)
         {
             float angle = Random.Range(0f, 360f);
             float dist = Random.Range(minDist, maxDist);
             Vector3 dir = new(Mathf.Cos(angle * Mathf.Deg2Rad), 0f, Mathf.Sin(angle * Mathf.Deg2Rad));
-            Vector3 pos = origin + dir * dist;
+            Vector3 candidate = origin + dir * dist;
 
-            if (!Physics.CheckSphere(pos + Vector3.up * 1f, clearance))
-                return pos;
+            if (Room.GetRoomAtPosition(candidate) is null)
+                continue;
+
+            if (Physics.Raycast(candidate + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 20f))
+            {
+                Vector3 floorPos = hit.point + Vector3.up * 0.1f;
+                if (!Physics.CheckSphere(floorPos + Vector3.up * 0.5f, 0.4f))
+                    return floorPos;
+            }
         }
-        return origin + Vector3.forward * 2f + Vector3.up * 0.5f;
+
+        return origin;
     }
 
     public override void OnPlayerChangedItem(PlayerChangedItemEventArgs ev)
@@ -144,8 +152,11 @@ public class EventsHandler : CustomEventsHandler
         SCP662.Instance.Spawn();
     }
 
-    public override void OnPlayerChangedRole(PlayerChangedRoleEventArgs ev)
+    public override void OnPlayerChangingRole(PlayerChangingRoleEventArgs ev)
     {
-        ev.Player.ReferenceHub.nicknameSync.ShownPlayerInfo &= PlayerInfoArea.Role;
+        if (IsPlayerMrDeeds(ev.Player))
+        {
+            ev.Player.ReferenceHub.nicknameSync.ShownPlayerInfo |= PlayerInfoArea.Role;
+        }
     }
 }

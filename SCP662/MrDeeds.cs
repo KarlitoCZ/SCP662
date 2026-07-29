@@ -35,7 +35,6 @@ public class MrDeeds : ICustomRole
         }
         
         return null;
-        
     }
     
     public int Id { get; set; } = 662;
