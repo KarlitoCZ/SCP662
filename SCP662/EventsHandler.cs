@@ -120,17 +120,20 @@ public class EventsHandler : CustomEventsHandler
             float angle = Random.Range(0f, 360f);
             float dist = Random.Range(minDist, maxDist);
             Vector3 dir = new(Mathf.Cos(angle * Mathf.Deg2Rad), 0f, Mathf.Sin(angle * Mathf.Deg2Rad));
-            Vector3 candidate = origin + dir * dist;
+            Vector3 candidate = new(origin.x + dir.x * dist, origin.y, origin.z + dir.z * dist);
 
             if (Room.GetRoomAtPosition(candidate) is null)
                 continue;
 
-            if (Physics.Raycast(candidate + Vector3.up * 10f, Vector3.down, out RaycastHit hit, 20f))
-            {
-                Vector3 floorPos = hit.point + Vector3.up * 0.1f;
-                if (!Physics.CheckSphere(floorPos + Vector3.up * 0.5f, 0.4f))
-                    return floorPos;
-            }
+            Vector3 direction = candidate - origin;
+            float rayDistance = direction.magnitude;
+            Vector3 rayOrigin = origin + Vector3.up * 0.5f + direction.normalized * 0.3f;
+
+            if (rayDistance > 0.5f && Physics.Raycast(rayOrigin, direction, out _, rayDistance))
+                continue;
+
+            if (!Physics.CheckSphere(candidate + Vector3.up * 0.5f, 0.3f))
+                return candidate;
         }
 
         return origin;
